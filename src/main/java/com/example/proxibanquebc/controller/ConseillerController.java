@@ -17,11 +17,13 @@ public class ConseillerController {
     private final ClientRepository clientRepository;
     private final CompteService compteService;
 
+    // Pour cree un client
     @PostMapping("/client")
     public Client createClient(@RequestBody Client client) {
         return clientRepository.save(client);
     }
 
+    // Pour lire un client
     @GetMapping("/client/{id}")
     public ResponseEntity<Client> readClient(@PathVariable Long id) {
         return clientRepository.findById(id)
@@ -29,12 +31,14 @@ public class ConseillerController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    //Pour get un client en particulier avec son id
     @DeleteMapping("/client/{id}")
     public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
         clientRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
+    // Pour faire un virement
     @PostMapping("/virement")
     public ResponseEntity<String> virement(@RequestBody Map<String, Object> request) {
         try {
