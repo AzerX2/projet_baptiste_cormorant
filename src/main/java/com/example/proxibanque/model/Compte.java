@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-public abstract class Compte {
+public abstract class Compte { // Super Classe pour engendrer les autres model
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +26,7 @@ public abstract class Compte {
     @Column(unique = true)
     private String numeroCompte;
     private double solde;
-    private LocalDate dateOuverture;
+    private LocalDate dateOuverture = LocalDate.now();
 
     // le client (a faire)
     // Un client est caractérisé par : nom, prenom, adresse,code postal,ville, téléphone
