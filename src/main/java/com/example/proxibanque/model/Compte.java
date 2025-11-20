@@ -28,8 +28,7 @@ public abstract class Compte { // Super Classe pour engendrer les autres model
     private double solde;
     private LocalDate dateOuverture = LocalDate.now();
 
-    // le client (a faire)
-    // Un client est caractérisé par : nom, prenom, adresse,code postal,ville, téléphone
+    // le client relie au compte
     @ManyToOne
     private Client client;
 }
